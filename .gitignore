@@ -37,7 +37,6 @@ venv/
 
 # Uploads
 !backend/uploads/.gitkeep
-temp/
 diagrams/
 SETUP_GUIDE.md
 .agent/

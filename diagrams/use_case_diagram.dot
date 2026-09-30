@@ -1,94 +1,77 @@
 digraph UseCaseDiagram {
     rankdir=LR;
-    bgcolor="white";
     fontname="Arial";
     node [fontname="Arial"];
     edge [fontname="Arial"];
     
     // Title
     labelloc="t";
-    label="PlantWise AI - Use Case Diagram";
-    fontsize=20;
+    fontsize=18;
     
-    // Actors - Styled as stick figures (rectangles with labels)
+    // Actors
     subgraph cluster_actors {
         label="Actors";
         style=invis;
         
-        Farmer [shape=box, style="rounded,filled", fillcolor="#E8F5E9", label="👨‍🌾 Farmer"];
-        Officer [shape=box, style="rounded,filled", fillcolor="#C8E6C9", label="👨‍💼 Agricultural Officer"];
-        Admin [shape=box, style="rounded,filled", fillcolor="#A5D6A7", label="🛡️ System Admin"];
-        AIEngine [shape=box, style="rounded,filled", fillcolor="#81C784", label="🤖 AI Engine\n(TensorFlow Model)"];
-        System [shape=box, style="rounded,filled", fillcolor="#66BB6A", label="⚙️ PlantWise System"];
+        Farmer [shape=box, style=rounded, label="Farmer"];
+        Officer [shape=box, style=rounded, label="Agricultural Officer"];
+        Admin [shape=box, style=rounded, label="System Admin"];
+        AIEngine [shape=box, style=rounded, label="AI Engines"];
+        System [shape=box, style=rounded, label="Disease Prediction System"];
     }
     
     // Use Cases grouped by subsystem
     subgraph cluster_auth {
-        label="Authentication Subsystem";
-        style=filled;
-        fillcolor="#F1F8E9";
-        color="#C5E1A5";
+        label="Authentication";
         
-        UC_Register [shape=ellipse, label="Register Account", style=filled, fillcolor="white"];
-        UC_Login [shape=ellipse, label="Login", style=filled, fillcolor="white"];
-        UC_Logout [shape=ellipse, label="Logout", style=filled, fillcolor="white"];
-        UC_ViewProfile [shape=ellipse, label="View Profile", style=filled, fillcolor="white"];
-        UC_ChangePassword [shape=ellipse, label="Change Password", style=filled, fillcolor="white"];
+        UC_Register [shape=ellipse, label="Register Account"];
+        UC_Login [shape=ellipse, label="Login"];
+        UC_Logout [shape=ellipse, label="Logout"];
+        UC_ViewProfile [shape=ellipse, label="View Profile"];
+        UC_ChangePassword [shape=ellipse, label="Change Password"];
     }
     
     subgraph cluster_farmer {
         label="Farmer Features";
-        style=filled;
-        fillcolor="#E8F5E9";
-        color="#A5D6A7";
         
-        UC_UploadImage [shape=ellipse, label="Upload Plant Image", style=filled, fillcolor="white"];
-        UC_GetPrediction [shape=ellipse, label="Get Disease Prediction", style=filled, fillcolor="white"];
-        UC_ViewHistory [shape=ellipse, label="View Prediction History", style=filled, fillcolor="white"];
-        UC_ViewTreatments [shape=ellipse, label="View Treatment\nRecommendations", style=filled, fillcolor="white"];
-        UC_DownloadPDF [shape=ellipse, label="Download Report PDF", style=filled, fillcolor="white"];
-        UC_ViewNotifications [shape=ellipse, label="View Notifications", style=filled, fillcolor="white"];
+        UC_UploadImage [shape=ellipse, label="Upload Plant Image"];
+        UC_GetPrediction [shape=ellipse, label="Get Disease Prediction"];
+        UC_ViewHistory [shape=ellipse, label="View Prediction History"];
+        UC_ViewTreatments [shape=ellipse, label="View Treatment\nRecommendations"];
+        UC_DownloadPDF [shape=ellipse, label="Download Report PDF"];
+        UC_ViewNotifications [shape=ellipse, label="View Notifications"];
     }
     
     subgraph cluster_officer {
         label="Officer Features";
-        style=filled;
-        fillcolor="#DCEDC8";
-        color="#AED581";
         
-        UC_ReviewPredictions [shape=ellipse, label="Review Pending\nPredictions", style=filled, fillcolor="white"];
-        UC_VerifyPrediction [shape=ellipse, label="Verify/Correct\nPrediction", style=filled, fillcolor="white"];
-        UC_FlagPrediction [shape=ellipse, label="Flag Prediction", style=filled, fillcolor="white"];
-        UC_AddTreatments [shape=ellipse, label="Add Treatment\nSuggestions", style=filled, fillcolor="white"];
-        UC_ViewStatistics [shape=ellipse, label="View Review\nStatistics", style=filled, fillcolor="white"];
+        UC_ReviewPredictions [shape=ellipse, label="Review Pending\nPredictions"];
+        UC_VerifyPrediction [shape=ellipse, label="Verify/Correct\nPrediction"];
+        UC_FlagPrediction [shape=ellipse, label="Flag Prediction"];
+        UC_AddTreatments [shape=ellipse, label="Add Treatment\nSuggestions"];
+        UC_ViewStatistics [shape=ellipse, label="View Review\nStatistics"];
     }
     
     subgraph cluster_admin {
         label="Admin Features";
-        style=filled;
-        fillcolor="#C8E6C9";
-        color="#81C784";
         
-        UC_ManageUsers [shape=ellipse, label="Manage Users", style=filled, fillcolor="white"];
-        UC_AssignRoles [shape=ellipse, label="Assign User Roles", style=filled, fillcolor="white"];
-        UC_ToggleUserStatus [shape=ellipse, label="Activate/Deactivate\nUsers", style=filled, fillcolor="white"];
-        UC_DeleteUser [shape=ellipse, label="Delete User", style=filled, fillcolor="white"];
-        UC_ViewMetrics [shape=ellipse, label="View System Metrics", style=filled, fillcolor="white"];
-        UC_ViewAuditLogs [shape=ellipse, label="View Audit Logs", style=filled, fillcolor="white"];
-        UC_ManageModel [shape=ellipse, label="Manage AI Model", style=filled, fillcolor="white"];
-        UC_ToggleModel [shape=ellipse, label="Toggle Model Status", style=filled, fillcolor="white"];
+        UC_ManageUsers [shape=ellipse, label="Manage Users"];
+        UC_AssignRoles [shape=ellipse, label="Assign User Roles"];
+        UC_ToggleUserStatus [shape=ellipse, label="Activate/Deactivate\nUsers"];
+        UC_DeleteUser [shape=ellipse, label="Delete User"];
+        UC_ViewMetrics [shape=ellipse, label="View System Metrics"];
+        UC_ViewAuditLogs [shape=ellipse, label="View Audit Logs"];
+        UC_ManageModel [shape=ellipse, label="Manage AI Model"];
+        UC_ToggleModel [shape=ellipse, label="Toggle Model Status"];
     }
     
     subgraph cluster_system {
         label="System Operations";
-        style=filled;
-        fillcolor="#B2DFDB";
-        color="#80CBC4";
         
-        UC_RunInference [shape=ellipse, label="Run Disease\nInference", style=filled, fillcolor="white"];
-        UC_StoreData [shape=ellipse, label="Store Prediction\nData", style=filled, fillcolor="white"];
-        UC_LogAudit [shape=ellipse, label="Log Audit Events", style=filled, fillcolor="white"];
-        UC_SendNotification [shape=ellipse, label="Send Notifications", style=filled, fillcolor="white"];
+        UC_RunInference [shape=ellipse, label="Run Disease\nInference"];
+        UC_StoreData [shape=ellipse, label="Store Prediction\nData"];
+        UC_LogAudit [shape=ellipse, label="Log Audit Events"];
+        UC_SendNotification [shape=ellipse, label="Send Notifications"];
     }
     
     // Farmer associations
@@ -135,7 +118,7 @@ digraph UseCaseDiagram {
     System -> UC_SendNotification;
     
     // Include relationships (dashed lines)
-    edge [style=dashed, label="<<include>>", fontsize=10];
+    edge [style=dashed,  fontsize=10];
     UC_UploadImage -> UC_RunInference;
     UC_RunInference -> UC_GetPrediction;
     UC_GetPrediction -> UC_StoreData;
